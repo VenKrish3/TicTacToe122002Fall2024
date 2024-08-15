@@ -1,1 +1,3 @@
 Hello! This is my cool text file.
+
+Hi! This is another cool change!
