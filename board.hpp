@@ -1,3 +1,8 @@
+#pragma once
+#ifndef BOARD_HPP
+#define BOARD_HPP
+#endif
+
 #include <string>
 
 using namespace std;
