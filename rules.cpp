@@ -25,6 +25,16 @@ bool Rules::in_progress() {
     return true;
 }
 
+string Rules::status() {
+    for(int i = 0; i < 3; i++) {
+        if(this->three_in_a_row(winning_combos[i][0], winning_combos[i][1], winning_combos[i][2])) {
+            return board->getValue(winning_combos[i][0]);
+        }
+    }
+    
+    return "";
+}
+
 bool Rules::three_in_a_row(int index_one, int index_two, int index_three) {
     return board->getValue(index_one) == board->getValue(index_two) && board->getValue(index_two) == board->getValue(index_three);
 }

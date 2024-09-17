@@ -13,4 +13,5 @@ class Rules {
     public:
         Rules(Board *board);
         bool in_progress();
+        string status();
 };

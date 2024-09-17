@@ -38,12 +38,15 @@ int main() {
 
     board.move(1, "F");
     assert(rules->in_progress());
+    assert(rules->status() == "");
 
     board.move(4, "F");
     assert(rules->in_progress());
+    assert(rules->status() == "");
 
     board.move(7, "F");
     assert(!rules->in_progress());
+    assert(rules->status() == "F");
 
     board.clear();
 

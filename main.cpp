@@ -12,10 +12,10 @@ int main() {
     BoardPrinter *boardPrinter = new BoardPrinter(&board);
     cout << boardPrinter->print() << endl;
 
-    bool inProgress = true;
     int userInput;
 
-    while(inProgress) {
+    while(rules->in_progress()) {
+        cout << "Make your move!" << endl;
         cin >> userInput;
         board.move(userInput, "X");
         cout << boardPrinter->print() << endl;
