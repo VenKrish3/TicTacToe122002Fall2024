@@ -28,5 +28,10 @@ int main()
   board.move(-1, "X");
   assert(board.getValue(-1) == "");
 
+  board.clear();
+  for(int i = 1; i <= 9; i++) {
+     assert(board.getValue(i) == to_string(i));
+  }
+
   cout << "All of the tests have passed!" << endl;
 }

@@ -19,3 +19,9 @@ string Board::getValue(int index)
     return "";
   }
 }
+
+void Board::clear() {
+  for(int i = 0; i < 9; i++) {
+    this->marks[i] = to_string(i + 1);
+  }
+}

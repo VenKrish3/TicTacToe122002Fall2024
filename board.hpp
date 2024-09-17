@@ -15,4 +15,5 @@ private:
 public:
   void move(int index, string mark);
   string getValue(int index);
+  void clear();
 };
