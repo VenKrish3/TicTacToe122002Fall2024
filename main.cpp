@@ -14,10 +14,12 @@ int main() {
 
     int userInput;
 
-    while(rules->in_progress()) {
+    while(rules->inProgress()) {
         cout << "Make your move!" << endl;
         cin >> userInput;
         board.move(userInput, "X");
         cout << boardPrinter->print() << endl;
     }
+
+    cout << rules->status() << " wins the game!" << endl;
 }
