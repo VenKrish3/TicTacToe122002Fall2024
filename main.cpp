@@ -1,8 +1,8 @@
 #include <iostream>
 
-#include "board.hpp"
-#include "rules.hpp"
-#include "board_printer.hpp"
+#include "board.cpp"
+#include "rules.cpp"
+#include "board_printer.cpp"
 
 using namespace std;
 
@@ -16,8 +16,9 @@ int main() {
 
     while(rules->inProgress()) {
         cout << "Make your move!" << endl;
-        cin >> userInput;
-        board.move(userInput, "X");
+        
+        userInput = rules->validator(cin);
+        board.move(userInput, rules->currentTurn());
         cout << boardPrinter->print() << endl;
     }
 

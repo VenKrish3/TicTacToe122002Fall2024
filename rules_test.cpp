@@ -1,8 +1,8 @@
 #include <cassert>
 #include <iostream>
 
-#include "board.hpp"
-#include "rules.hpp"
+#include "board.cpp"
+#include "rules.cpp"
 
 using namespace std;
 
@@ -58,6 +58,7 @@ int main() {
 
     board.move(8, "P");
     assert(!rules->inProgress());
+    
 
     cout << "All of the tests passed!" << endl;
 }

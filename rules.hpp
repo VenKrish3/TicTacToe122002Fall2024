@@ -8,9 +8,12 @@
 class Rules {
     private:
         Board *board;
+        bool turn;
         bool threeInARow(int index_one, int index_two, int index_three);
         int winning_combos[8][3];
     public:
+    	int validator(string);
+    	string currentTurn();
         Rules(Board *board);
         bool inProgress();
         string status();

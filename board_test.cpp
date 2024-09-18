@@ -1,7 +1,7 @@
 #include <cassert>
 #include <iostream>
 
-#include "board.hpp"
+#include "board.cpp"
 
 using namespace std;
 
