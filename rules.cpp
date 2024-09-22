@@ -40,19 +40,30 @@ Rules::Rules(Board *board) {
 }
 
 bool Rules::inProgress() {
-    for(int i = 0; i < 3; i++) {
+    for(int i = 0; i < 8; i++) {
         if(this->threeInARow(winning_combos[i][0], winning_combos[i][1], winning_combos[i][2])) {
             return false;
         }
     }
-    
     return true;
 }
 
+int Rules::validator(int potentiallyInvalidInput)
+{
+	int validInput = potentiallyInvalidInput;
+	while((board->getValue(validInput) == "X" || board->getValue(validInput) == "O")/* && (validInput < 0 && validInput > 9)*/)
+	{
+		cout << "Invalid move, Please try again: ";
+		cin >> validInput;
+	}
+	return validInput;
+}
+
 string Rules::status() {
-    for(int i = 0; i < 3; i++) {
+    for(int i = 0; i < 3; i++) 
+	{
         if(this->threeInARow(winning_combos[i][0], winning_combos[i][1], winning_combos[i][2])) {
-            return board->getValue(winning_combos[i][0]);
+            return board->getValue(winning_combos[i][0]) + " Wins the game!";
         }
     }
     
@@ -61,27 +72,4 @@ string Rules::status() {
 
 bool Rules::threeInARow(int index_one, int index_two, int index_three) {
     return board->getValue(index_one) == board->getValue(index_two) && board->getValue(index_two) == board->getValue(index_three);
-}
-
-string Rules::currentTurn()
-{
-	if(turn)
-	{
-		return "X";
-		turn = false;
-	}
-	else
-	{
-		return "O";
-		turn = true;
-	}		
-}
-
-int Rules::validator(string input)
-{
-	while(!isdigit(input[0]))
-	{
-		cout << "please input a number between 1-9" << endl;
-	}
-	return 3;
 }

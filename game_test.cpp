@@ -1,4 +1,4 @@
-#include "game.hpp"
+#include "game.cpp"
 
 #include <iostream>
 #include <cassert>
