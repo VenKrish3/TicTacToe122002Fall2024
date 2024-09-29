@@ -1,5 +1,4 @@
 #include "rules.hpp"
-#include <cctype>
 #include <iostream>
 
 using namespace std;
@@ -51,7 +50,7 @@ bool Rules::inProgress() {
 int Rules::validator(int potentiallyInvalidInput)
 {
 	int validInput = potentiallyInvalidInput;
-	while((board->getValue(validInput) == "X" || board->getValue(validInput) == "O")/* && (validInput < 0 && validInput > 9)*/)
+	while((board->getValue(validInput) == "X" || board->getValue(validInput) == "O") || (validInput < 0 || validInput > 9))
 	{
 		cout << "Invalid move, Please try again: ";
 		cin >> validInput;
