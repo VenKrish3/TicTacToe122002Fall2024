@@ -59,14 +59,14 @@ int Rules::validator(int potentiallyInvalidInput)
 }
 
 string Rules::status() {
-    for(int i = 0; i < 3; i++) 
+    for(int i = 0; i < 9; i++) 
 	{
         if(this->threeInARow(winning_combos[i][0], winning_combos[i][1], winning_combos[i][2])) {
             return board->getValue(winning_combos[i][0]) + " Wins the game!";
         }
     }
     
-    return "";
+    return "Tie game!";
 }
 
 bool Rules::threeInARow(int index_one, int index_two, int index_three) {
