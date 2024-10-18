@@ -19,7 +19,8 @@ rt: clean
 	./rt
 
 clean:
-	@rm -f ttt
 	@rm -f bpt
 	@rm -f bt
 	@rm -f gt
+	@rm -f rt
+	@rm -f ttt
