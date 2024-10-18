@@ -14,12 +14,13 @@ void Game::start() {
     while(this->rules->inProgress()) {
         cout << "Make your move!" << endl;
         cin >> userInput;
-        board->move(userInput, this->getCurrentMark());
+        int validInput = rules->validator(userInput);
+        board->move(validInput, this->getCurrentMark());
         cout << boardPrinter->print() << endl;
         this->toggleMark();
     }
 
-    cout << rules->status() << " wins the game!" << endl;
+    cout << rules->status() << endl;
 }
 
 void Game::toggleMark() {
