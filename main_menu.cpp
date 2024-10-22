@@ -6,12 +6,28 @@
 #include "board_printer.hpp"
 #include "main_menu.hpp"
 
+using namespace std;
+
 void MainMenu::start()
 {
-  Board board;
-  Rules *rules = new Rules(&board);
-  BoardPrinter *boardPrinter = new BoardPrinter(&board);
-  TicTacToe *ticTacToe = new TicTacToe(rules, &board, boardPrinter);
+  cout << "Welcome to TTT!" << endl;
+  cout << "Choose an Option!" << endl;
+  cout << "(1) Regular TTT" << endl;
+  cout << "(2) Battle TTT" << endl;
 
-  ticTacToe->start();
+  int option;
+  cin >> option;
+
+  if (option == 1)
+  {
+    Board board;
+    Rules *rules = new Rules(&board);
+    BoardPrinter *boardPrinter = new BoardPrinter(&board);
+    TicTacToe *ticTacToe = new TicTacToe(rules, &board, boardPrinter);
+    ticTacToe->start();
+  }
+  else
+  {
+    cout << "Battle TTT Coming Soon!" << endl;
+  }
 }
