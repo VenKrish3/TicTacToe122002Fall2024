@@ -1,5 +1,6 @@
 #include <iostream>
 
+#include "battle_tic_tac_toe.hpp"
 #include "board.hpp"
 #include "rules.hpp"
 #include "tic_tac_toe.hpp"
@@ -28,6 +29,7 @@ void MainMenu::start()
   }
   else
   {
-    cout << "Battle TTT Coming Soon!" << endl;
+    BattleTicTacToe *battleTicTacToe = new BattleTicTacToe();
+    battleTicTacToe->start();
   }
 }
