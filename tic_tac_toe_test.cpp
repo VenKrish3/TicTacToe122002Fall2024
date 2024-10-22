@@ -2,7 +2,7 @@
 #include <cassert>
 
 #include "board.hpp"
-#include "game.hpp"
+#include "tic_tac_toe.hpp"
 
 using namespace std;
 
@@ -13,17 +13,17 @@ int main()
   Board board;
   Rules *rules = new Rules(&board);
   BoardPrinter *printer = new BoardPrinter(&board);
-  Game *game = new Game(rules, &board, printer);
+  TicTacToe *ticTacToe = new TicTacToe(rules, &board, printer);
 
-  assert(game->getCurrentMark() == "X");
+  assert(ticTacToe->getCurrentMark() == "X");
 
-  game->toggleMark();
+  ticTacToe->toggleMark();
 
-  assert(game->getCurrentMark() == "O");
+  assert(ticTacToe->getCurrentMark() == "O");
 
-  game->toggleMark();
+  ticTacToe->toggleMark();
 
-  assert(game->getCurrentMark() == "X");
+  assert(ticTacToe->getCurrentMark() == "X");
 
   cout << "All tests have passed" << endl;
 }

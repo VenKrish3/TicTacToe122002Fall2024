@@ -1,5 +1,5 @@
 ttt: clean
-	g++ --std=c++14 main.cpp board.cpp game.cpp board_printer.cpp rules.cpp -o ttt
+	g++ --std=c++14 main.cpp board.cpp tic_tac_toe.cpp board_printer.cpp rules.cpp -o ttt
 	./ttt
 
 bpt: clean
@@ -10,13 +10,13 @@ bt: clean
 	g++ --std=c++14 board_test.cpp board.cpp -o bt
 	./bt
 
-gt: clean
-	g++ --std=c++14 game_test.cpp board_printer.cpp rules.cpp game.cpp board.cpp -o gt
-	./gt
-
 rt: clean
 	g++ --std=c++14 rules_test.cpp rules.cpp board.cpp -o rt
 	./rt
+
+tttt: clean
+	g++ --std=c++14 tic_tac_toe_test.cpp board_printer.cpp rules.cpp tic_tac_toe.cpp board.cpp -o gt
+	./gt
 
 clean:
 	@rm -f bpt

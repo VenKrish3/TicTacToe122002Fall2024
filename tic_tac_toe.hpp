@@ -6,7 +6,7 @@
 #include "board.hpp"
 #include "board_printer.hpp"
 
-class Game
+class TicTacToe
 {
 private:
   Rules *rules;
@@ -16,7 +16,7 @@ private:
 
 public:
   string getCurrentMark();
-  Game(Rules *rules, Board *board, BoardPrinter *boardPrinter);
+  TicTacToe(Rules *rules, Board *board, BoardPrinter *boardPrinter);
   void toggleMark();
   void start();
 };
