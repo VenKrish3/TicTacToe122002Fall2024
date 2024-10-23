@@ -9,27 +9,68 @@
 
 using namespace std;
 
-void MainMenu::start()
+void MainMenu::printWelcomeMessage()
 {
   cout << "Welcome to TTT!" << endl;
   cout << "Choose an Option!" << endl;
   cout << "(1) Regular TTT" << endl;
   cout << "(2) Battle TTT" << endl;
+}
 
-  int option;
-  cin >> option;
+void MainMenu::printPlayAgainMessage()
+{
+  cout << "Do you want to play again?" << endl;
+  cout << "(1) Yes" << endl;
+  cout << "(2) No" << endl;
+}
 
+void MainMenu::printExitMessage()
+{
+  cout << "Goodbye!" << endl;
+}
+
+void MainMenu::buildAndPlayGame(int option)
+{
+  Board *board = new Board();
+  Rules *rules = new Rules(board);
+  BoardPrinter *boardPrinter = new BoardPrinter(board);
   if (option == 1)
   {
-    Board board;
-    Rules *rules = new Rules(&board);
-    BoardPrinter *boardPrinter = new BoardPrinter(&board);
-    TicTacToe *ticTacToe = new TicTacToe(rules, &board, boardPrinter);
+    TicTacToe *ticTacToe = new TicTacToe(rules, board, boardPrinter);
     ticTacToe->start();
+    delete ticTacToe;
   }
   else
   {
-    BattleTicTacToe *battleTicTacToe = new BattleTicTacToe();
+    BattleTicTacToe *battleTicTacToe = new BattleTicTacToe(rules, board, boardPrinter);
     battleTicTacToe->start();
+    delete battleTicTacToe;
+  }
+
+  delete board;
+  delete rules;
+  delete boardPrinter;
+}
+
+int MainMenu::selectOneOrTwo()
+{
+  int option;
+  cin >> option;
+  return option;
+}
+
+void MainMenu::start()
+{
+  printWelcomeMessage();
+  buildAndPlayGame(selectOneOrTwo());
+  printPlayAgainMessage();
+
+  if (selectOneOrTwo() == 1)
+  {
+    start();
+  }
+  else
+  {
+    printExitMessage();
   }
 }
