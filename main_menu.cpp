@@ -52,6 +52,18 @@ void MainMenu::buildAndPlayGame(int option)
   delete boardPrinter;
 }
 
+void MainMenu::playAgainOrExit()
+{
+  if (selectOneOrTwo() == 1)
+  {
+    start();
+  }
+  else
+  {
+    printExitMessage();
+  }
+}
+
 int MainMenu::selectOneOrTwo()
 {
   int option;
@@ -64,13 +76,5 @@ void MainMenu::start()
   printWelcomeMessage();
   buildAndPlayGame(selectOneOrTwo());
   printPlayAgainMessage();
-
-  if (selectOneOrTwo() == 1)
-  {
-    start();
-  }
-  else
-  {
-    printExitMessage();
-  }
+  playAgainOrExit();
 }

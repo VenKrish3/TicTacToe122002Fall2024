@@ -3,6 +3,7 @@
 class MainMenu
 {
 private:
+  void playAgainOrExit();
   void printExitMessage();
   void printPlayAgainMessage();
   void printWelcomeMessage();
