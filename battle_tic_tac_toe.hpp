@@ -5,6 +5,7 @@
 #include "rules.hpp"
 #include "board.hpp"
 #include "board_printer.hpp"
+#include "player.hpp"
 
 class BattleTicTacToe
 {
@@ -12,11 +13,12 @@ private:
   Rules *rules;
   Board *board;
   BoardPrinter *boardPrinter;
-  string currentMark = "X";
+  Player *playerOne;
+  Player *playerTwo;
+  Player *currentPlayer;
 
 public:
-  string getCurrentMark();
-  BattleTicTacToe(Rules *rules, Board *board, BoardPrinter *boardPrinter);
-  void toggleMark();
+  BattleTicTacToe(Rules *rules, Board *board, BoardPrinter *boardPrinter, Player *playerOne, Player *playerTwo);
+  void togglePlayer();
   void start();
 };

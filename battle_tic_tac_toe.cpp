@@ -2,11 +2,14 @@
 
 #include "battle_tic_tac_toe.hpp"
 
-BattleTicTacToe::BattleTicTacToe(Rules *rules, Board *board, BoardPrinter *boardPrinter)
+BattleTicTacToe::BattleTicTacToe(Rules *rules, Board *board, BoardPrinter *boardPrinter, Player *playerOne, Player *playerTwo)
 {
   this->rules = rules;
   this->board = board;
   this->boardPrinter = boardPrinter;
+  this->playerOne = playerOne;
+  this->playerTwo = playerTwo;
+  this->currentPlayer = playerOne;
 }
 
 void BattleTicTacToe::start()
@@ -15,30 +18,22 @@ void BattleTicTacToe::start()
   cout << boardPrinter->print() << endl;
   while (this->rules->inProgress())
   {
-    cout << "Make your move!" << endl;
-    cin >> userInput;
-    int validInput = rules->validator(userInput);
-    board->move(validInput, this->getCurrentMark());
-    cout << boardPrinter->print() << endl;
-    this->toggleMark();
+    currentPlayer->move();
+    std::cout << boardPrinter->print() << std::endl;
+    togglePlayer();
   }
 
   cout << rules->status() << endl;
 }
 
-void BattleTicTacToe::toggleMark()
+void BattleTicTacToe::togglePlayer()
 {
-  if (this->currentMark == "X")
+  if (currentPlayer->getMark() == playerOne->getMark())
   {
-    this->currentMark = "O";
+    currentPlayer = playerTwo;
   }
   else
   {
-    this->currentMark = "X";
+    currentPlayer = playerOne;
   }
-}
-
-string BattleTicTacToe::getCurrentMark()
-{
-  return this->currentMark;
 }
