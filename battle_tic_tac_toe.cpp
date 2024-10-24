@@ -18,6 +18,7 @@ void BattleTicTacToe::start()
   cout << boardPrinter->print() << endl;
   while (this->rules->inProgress())
   {
+    currentPlayer->prompt();
     currentPlayer->move();
     std::cout << boardPrinter->print() << std::endl;
     togglePlayer();

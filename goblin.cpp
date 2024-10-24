@@ -13,13 +13,18 @@ std::string Goblin::getMark()
   return mark;
 }
 
+void Goblin::prompt()
+{
+  std::cout << "I am a goblin! Rawr!" << std::endl;
+  std::cout << "You think you can beat me? Unlikely!" << std::endl;
+  std::cout << "Enter a move!" << std::endl;
+}
+
 void Goblin::move()
 {
-  std::cout << "Make your move!" << std::endl;
   int userInput;
   std::cin >> userInput;
   int validInput = this->validator(userInput);
-  std::cout << "I am a goblin! I am making a move! Fear me!" << std::endl;
   board->move(validInput, this->mark);
 }
 

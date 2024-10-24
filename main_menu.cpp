@@ -7,6 +7,7 @@
 #include "board_printer.hpp"
 #include "main_menu.hpp"
 #include "goblin.hpp"
+#include "reaper.hpp"
 
 void MainMenu::printWelcomeMessage()
 {
@@ -46,7 +47,7 @@ void MainMenu::buildAndPlayGame(int option)
     std::cout << "Also, helpful note for those of you reading this - be sure to update Peasant#validator to handle custom marks!" << std::endl;
 
     Player *playerOne = new Goblin(board, "X");
-    Player *playerTwo = new Goblin(board, "O");
+    Player *playerTwo = new Reaper(board, "O");
 
     BattleTicTacToe *battleTicTacToe = new BattleTicTacToe(rules, board, boardPrinter, playerOne, playerTwo);
     battleTicTacToe->start();

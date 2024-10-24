@@ -1,5 +1,5 @@
 ttt: clean
-	g++ --std=c++14 main.cpp board.cpp tic_tac_toe.cpp board_printer.cpp rules.cpp main_menu.cpp battle_tic_tac_toe.cpp goblin.cpp -o ttt
+	g++ --std=c++14 main.cpp board.cpp tic_tac_toe.cpp board_printer.cpp rules.cpp main_menu.cpp battle_tic_tac_toe.cpp goblin.cpp reaper.cpp -o ttt
 	./ttt
 
 bpt: clean
