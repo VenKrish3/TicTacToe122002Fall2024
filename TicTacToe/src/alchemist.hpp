@@ -4,7 +4,7 @@
 #include "board.hpp"
 #include "player.hpp"
 
-class Reaper : public Player
+class alchemist : public Player
 {
 private:
   Board *board;
@@ -13,7 +13,7 @@ private:
   int selectOneOrTwo();
 
 public:
-  Reaper(Board *, std::string);
+  alchemist(Board *, std::string);
   std::string getMark() override;
   void move() override;
   void prompt() override;

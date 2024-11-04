@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 
 #include "game.hpp" 
 
@@ -34,3 +34,4 @@ void Game::toggleMark() {
 string Game::getCurrentMark() {
     return this->currentMark;
 }
+*/

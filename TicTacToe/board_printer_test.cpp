@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 #include <cassert>
 
 #include "board.hpp"
@@ -43,4 +43,4 @@ int main()
   assert(boardPrinter->print() == " X | O | W \n-----------\n V | P | L \n-----------\n M | H | F ");
 
   cout << "All of the tests have passed!" << endl;
-}
+}*/

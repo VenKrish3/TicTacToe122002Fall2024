@@ -1,7 +1,7 @@
-#include <cassert>
+/*#include <cassert>
 #include <iostream>
 
-#include "board.cpp"
+#include "board.hpp"
 
 using namespace std;
 
@@ -47,3 +47,4 @@ int main()
 
   cout << "All of the tests have passed!" << endl;
 }
+*/

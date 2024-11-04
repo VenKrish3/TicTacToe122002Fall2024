@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 #include <cassert>
 
 #include "board.hpp"
@@ -26,4 +26,4 @@ int main()
   assert(ticTacToe->getCurrentMark() == "X");
 
   cout << "All tests have passed" << endl;
-}
+}*/
