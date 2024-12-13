@@ -63,9 +63,9 @@ string Rules::status() {
 	{
         if(this->threeInARow(winning_combos[i][0], winning_combos[i][1], winning_combos[i][2])) {
             return board->getValue(winning_combos[i][0]) + " Wins the game!";
+
         }
     }
-    
     return "Tie game!";
 }
 

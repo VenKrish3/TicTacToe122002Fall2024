@@ -1,5 +1,6 @@
 #include <iostream>
 
+#include "PrinterForResults.hpp"
 #include "battle_tic_tac_toe.hpp"
 
 BattleTicTacToe::BattleTicTacToe(Rules *rules, Board *board, BoardPrinter *boardPrinter, Player *playerOne, Player *playerTwo)
@@ -25,6 +26,12 @@ void BattleTicTacToe::start()
   }
 
   cout << rules->status() << endl;
+  if (currentPlayer->getMark() == playerOne->getMark())
+  {
+	  PrinterForResults printerResults(1,0);
+  }
+  else
+	  PrinterForResults printerResults(0,1);
 }
 
 void BattleTicTacToe::togglePlayer()

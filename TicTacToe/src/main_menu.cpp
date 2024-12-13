@@ -6,6 +6,7 @@
 #include "tic_tac_toe.hpp"
 #include "board_printer.hpp"
 #include "main_menu.hpp"
+#include "PrinterForResults.hpp"
 
 #include "alchemist.hpp"
 #include "paladin.hpp"
@@ -54,15 +55,17 @@ void MainMenu::buildAndPlayGame(int option)
   else
   {
     int playerSelection;
-    cout << "This might be a good time to allow each player to choose their marks!" << endl;
-    cout << "But I am just going to hardcode X and O for now..." << endl;
-    cout << "Also, helpful note for those of you reading this - be sure to update Peasant #validator to handle custom marks!" << endl;
+//    cout << "This might be a good time to allow each player to choose their marks!" << endl;
+//    cout << "But I am just going to hardcode X and O for now..." << endl;
+//    cout << "Also, helpful note for those of you reading this - be sure to update Peasant #validator to handle custom marks!" << endl;
     cout << "Choose your characters! (paladin = 1, alchemist = 2)" << endl;
     cout << "P1 is ... ";
     cin >> playerSelection;
     cout << "P1, pick your mark! " << endl;
     string markChosen;
-    while(markChosen.length() >= 2 && (!isdigit(stoi(markChosen)) || markChosen == "/" || markChosen == "\\" || markChosen != " " || markChosen != "," || markChosen != "." || markChosen != ";" || markChosen != ":"))
+    cin >> markChosen;
+    int markIsNum = stoi(markChosen);
+    while(markChosen.length() >= 2 && (!isalpha(markIsNum) || markChosen == "/" || markChosen == "\\" || markChosen != " " || markChosen != "," || markChosen != "." || markChosen != ";" || markChosen != ":"))
     {
     	cout << "Sorry, that isn't allowed try again" << endl;
     	cin >> markChosen;
@@ -75,23 +78,26 @@ void MainMenu::buildAndPlayGame(int option)
     }
     else
     {
-    	playerOne = new Paladin(board, "X");
+    	playerOne = new Paladin(board, markChosen);
     }
     cout << "P2 is ... ";
     cin >> playerSelection;
     cout << "P2, pick your mark! " << endl;
-    while(markChosen.length() >= 2 && (!isdigit(stoi(markChosen)) || markChosen == "/" || markChosen == "\\" || markChosen != " " || markChosen != "," || markChosen != "." || markChosen != ";" || markChosen != ":"))
+    cin >> markChosen;
+    markIsNum = stoi(markChosen);
+    while(markChosen.length() >= 2 && (!isalpha(markIsNum) || markChosen == "/" || markChosen == "\\" || markChosen != " " || markChosen != "," || markChosen != "." || markChosen != ";" || markChosen != ":"))
     {
     	cout << "Sorry, that isn't allowed try again" << endl;
     	cin >> markChosen;
     }
+
     if(playerSelection == 1)
     {
-    	playerTwo = new alchemist(board, "X");
+    	playerTwo = new alchemist(board, markChosen);
     }
     else
     {
-    	playerTwo = new Paladin(board, "X");
+    	playerTwo = new Paladin(board, markChosen);
     }
 
     BattleTicTacToe *battleTicTacToe = new BattleTicTacToe(rules, board, boardPrinter, playerOne, playerTwo);
@@ -104,6 +110,7 @@ void MainMenu::buildAndPlayGame(int option)
   delete board;
   delete rules;
   delete boardPrinter;
+
 }
 
 void MainMenu::playAgainOrExit()

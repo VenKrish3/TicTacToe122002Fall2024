@@ -1,6 +1,8 @@
 #include <iostream>
 
 #include "tic_tac_toe.hpp"
+#include "PrinterForResults.hpp"
+
 
 TicTacToe::TicTacToe(Rules *rules, Board *board, BoardPrinter *boardPrinter)
 {
@@ -24,6 +26,12 @@ void TicTacToe::start()
   }
 
   cout << rules->status() << endl;
+  if (this->currentMark == "X")
+  {
+	  PrinterForResults printerResults(1,0);
+  }
+  else
+	  PrinterForResults printerResults(0,1);
 }
 
 void TicTacToe::toggleMark()
