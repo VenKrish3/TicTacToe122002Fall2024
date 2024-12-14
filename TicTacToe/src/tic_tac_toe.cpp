@@ -13,6 +13,7 @@ TicTacToe::TicTacToe(Rules *rules, Board *board, BoardPrinter *boardPrinter)
 
 void TicTacToe::start()
 {
+  PrinterForResults printerResults(0,0);
   int userInput;
   cout << boardPrinter->print() << endl;
   while (this->rules->inProgress())
@@ -28,10 +29,10 @@ void TicTacToe::start()
   cout << rules->status() << endl;
   if (this->currentMark == "X")
   {
-	  PrinterForResults printerResults(1,0);
+	  printerResults.addP1();
   }
   else
-	  PrinterForResults printerResults(0,1);
+	  printerResults.addP2();
 }
 
 void TicTacToe::toggleMark()

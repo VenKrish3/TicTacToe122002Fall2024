@@ -16,6 +16,15 @@ PrinterForResults::PrinterForResults(int p1Wins, int p2Wins)
 	counterForP2+=p2Wins;
 }
 
+void PrinterForResults::addP1()
+{
+	counterForP1++;
+}
+void PrinterForResults::addP2()
+{
+	counterForP2++;
+}
+
 void PrinterForResults::printer()
 {
 	fstream fileName("TicTacToeResults");

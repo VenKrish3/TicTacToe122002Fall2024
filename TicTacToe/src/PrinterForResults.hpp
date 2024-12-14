@@ -17,8 +17,8 @@ private:
 	int counterForP1, counterForP2;
 public:
 	PrinterForResults(int, int);
-	int getP1Wins();
-	int getP2Wins();
+	void addP1();
+	void addP2();
 	void printer();
 };
 

@@ -62,9 +62,10 @@ void MainMenu::buildAndPlayGame(int option)
     cout << "P1 is ... ";
     cin >> playerSelection;
     cout << "P1, pick your mark! " << endl;
-    string markChosen;
-    cin >> markChosen;
-    int markIsNum = stoi(markChosen);
+    string markChosen = "X";
+    int markIsNum = 0;
+//    cin >> markChosen;
+    markIsNum = stoi(markChosen);
     while(markChosen.length() >= 2 && (!isalpha(markIsNum) || markChosen == "/" || markChosen == "\\" || markChosen != " " || markChosen != "," || markChosen != "." || markChosen != ";" || markChosen != ":"))
     {
     	cout << "Sorry, that isn't allowed try again" << endl;

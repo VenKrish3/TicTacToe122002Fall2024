@@ -15,6 +15,7 @@ BattleTicTacToe::BattleTicTacToe(Rules *rules, Board *board, BoardPrinter *board
 
 void BattleTicTacToe::start()
 {
+  PrinterForResults printerResults(0,0);
   int userInput;
   cout << boardPrinter->print() << endl;
   while (this->rules->inProgress())
@@ -28,10 +29,10 @@ void BattleTicTacToe::start()
   cout << rules->status() << endl;
   if (currentPlayer->getMark() == playerOne->getMark())
   {
-	  PrinterForResults printerResults(1,0);
+	  printerResults.addP1();
   }
   else
-	  PrinterForResults printerResults(0,1);
+	  printerResults.addP2();
 }
 
 void BattleTicTacToe::togglePlayer()
